@@ -11,11 +11,11 @@ public class TimeZoneTimeGenerator {
     ArrayList<String> allZonesArrayList = new ArrayList<>();
 
 
-    private ArrayList<String>  getAllZoneIds()
+    protected static ArrayList<String>  getAllZoneIds()
     {
         TimeZoneTimeGenerator tztg = new TimeZoneTimeGenerator();
 
-        for(String zone : TimeZone.getAvailableIDs())
+        for(String zone : TimeZone.getAvailableIDs(-12600000))
         {
             tztg.allZonesArrayList.add(zone);
         }
