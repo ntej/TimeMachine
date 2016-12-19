@@ -11,7 +11,7 @@ public class TimeZoneTimeGenerator {
     ArrayList<String> allZonesArrayList = new ArrayList<>();
 
 
-    private ArrayList<String>  getAllZoneIds()
+    private static ArrayList<String>  getAllZoneIds()
     {
         TimeZoneTimeGenerator tztg = new TimeZoneTimeGenerator();
 
