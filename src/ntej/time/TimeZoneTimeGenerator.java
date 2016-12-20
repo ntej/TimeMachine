@@ -1,5 +1,7 @@
 package ntej.time;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.TimeZone;
 
@@ -8,6 +10,7 @@ import java.util.TimeZone;
  */
 public class TimeZoneTimeGenerator {
 
+
     ArrayList<String> allZonesArrayList = new ArrayList<>();
 
 
@@ -15,7 +18,7 @@ public class TimeZoneTimeGenerator {
     {
         TimeZoneTimeGenerator tztg = new TimeZoneTimeGenerator();
 
-        for(String zone : TimeZone.getAvailableIDs(-12600000))
+        for(String zone : TimeZone.getAvailableIDs())
         {
             tztg.allZonesArrayList.add(zone);
         }
