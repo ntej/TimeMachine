@@ -1,6 +1,9 @@
 package ntej.time;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.TimeZone;
 
 /**
@@ -8,21 +11,29 @@ import java.util.TimeZone;
  */
 public class TimeZoneTimeGenerator {
 
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss a Z");
+
+    ArrayList<String> allZonesTimeAndDateList = new ArrayList<>();
+
+    StringBuilder sb = new StringBuilder();
 
 
-    ArrayList<String> allZonesArrayList = new ArrayList<>();
-
-
-    private static ArrayList<String>  getAllZoneIds()
+    private static ArrayList<String>  getAllZoneIdsWithTimeAndDate()
     {
         TimeZoneTimeGenerator tztg = new TimeZoneTimeGenerator();
 
-        for(String zone : TimeZone.getAvailableIDs())
+        for(String zoneId : TimeZone.getAvailableIDs())
         {
-            tztg.allZonesArrayList.add(zone);
+            tztg.sb.append(zoneId+'\n');
+
+            tztg.formatter.setTimeZone(TimeZone.getTimeZone(zoneId));
+            tztg.sb.append(tztg.formatter.format(new Date()));
+
+            tztg.allZonesTimeAndDateList.add(tztg.sb.toString());
         }
 
-        return tztg.allZonesArrayList;
+
+        return tztg.allZonesTimeAndDateList;
     }
 
 }
